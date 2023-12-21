@@ -1,0 +1,45 @@
+@page "/customers"
+
+<h1>Customers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Customers)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.Address</td>
+                <td>@customer.City</td>
+                <td>@customer.State</td>
+                <td>@customer.ZipCode</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Customer> Customers = new List<Customer>
+    {
+        new Customer { Name = "John Doe", Address = "123 Main St", City = "Anytown", State = "MI", ZipCode = "12345" },
+        new Customer { Name = "Jane Smith", Address = "456 Oak Ave", City = "Sometown", State = "MI", ZipCode = "67890" },
+        new Customer { Name = "Bob Johnson", Address = "789 Elm St", City = "Othertown", State = "MI", ZipCode = "24680" }
+    };
+
+    private class Customer
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
+    }
+}
